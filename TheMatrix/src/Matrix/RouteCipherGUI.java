@@ -26,7 +26,7 @@ import java.security.Key;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-public class RouteCipherGUI {
+public class RouteCipherGUI { // Runs all visible panels along with helper methods.
 
 	 private JFrame frmTheMatrix;
 	    private JLabel instructionlabel;
@@ -40,7 +40,7 @@ public class RouteCipherGUI {
 	    public static String input;
 	    
 	    
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Main method to run the program.
         new RouteCipherGUI();
     }
 
@@ -164,7 +164,7 @@ public class RouteCipherGUI {
     
    private JTextArea hello;
    
-    public void slowPrint(final String message) {
+    public void slowPrint(final String message) { // Slow Print method to add a printing animation to the panel.
 
 		if(timer != null && timer.isRunning()) return;
         index   = 0;
@@ -191,7 +191,7 @@ public class RouteCipherGUI {
         
     }   
     
-    public static String encrypt(String s) {
+    public static String encrypt(String s) { // String encryptor method.
         String encryption = "";
     	//StringBuilder encryption = new StringBuilder();
         double sqrt = Math.sqrt(Math.sqrt(s.length()));
@@ -270,8 +270,8 @@ public class RouteCipherGUI {
 
         return encryption.toString();
     }
-
-    public static String decrypt(String s) {
+ 
+    public static String decrypt(String s) { // String decryptor method. 
     	String encryption = "";
     	//StringBuilder encryption = new StringBuilder();
         double sqrt = Math.sqrt(Math.sqrt(s.length()));
@@ -458,7 +458,7 @@ public class RouteCipherGUI {
         return encryption.toString();
     }
     
-    public static int numLetterBlocks(String msg) {
+    public static int numLetterBlocks(String msg) { // Checks the amount of characters within the square array. 
         int area = (int)Math.sqrt(Math.sqrt(msg.length())) * (int)Math.sqrt(Math.sqrt(msg.length()));
         if(msg.length() % area != 0) {
             return (msg.length() / area) + 1;
@@ -468,12 +468,12 @@ public class RouteCipherGUI {
         }
     }
     
-    public static int numRowAndCol(String msg) {
+    public static int numRowAndCol(String msg) { // Counts and returns the amount of rows and colums within the array.
     	int a = (int) Math.sqrt(Math.sqrt(msg.length()));
 		return a;
     }
 
-    public class CustomTextArea extends JTextArea {
+    public class CustomTextArea extends JTextArea { // Class for panel containing text.
 
         /**
 		 * 
@@ -493,12 +493,12 @@ public class RouteCipherGUI {
         }
 
         @Override
-        public boolean isOpaque() {
+        public boolean isOpaque() { // Boolean checker for panel opacity.
             return false;
         }
 
         @Override
-        protected void paintComponent(Graphics g) {
+        protected void paintComponent(Graphics g) { // Helper method to repaint and paint all components of the panel. 
             Graphics2D g2d = (Graphics2D) g.create();
             g2d.setColor(getBackground());
             g2d.fillRect(0, 0, getWidth(), getHeight());
